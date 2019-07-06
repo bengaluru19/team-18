@@ -4,15 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <title>Cart</title>
 </head>
 <body>
-    {% for order in orders %}
-        <p>{{ orders[order][0] }}</p>
-        <p>{{ orders[order][1] }}</p>
-        <p>{{ orders[order][2] }}</p>
-        <br>
-    {% endfor %}
-    {{ vendor }}
+    <div class="container">
+        <h1>Cart</h1>
+        <table>
+                <table>
+                        <thead>
+                          <tr>
+                              <th>Name</th>
+                              <th>Item Quantity</th>
+                              <th>Item Per Unit Price</th>
+                          </tr>
+                        </thead>
+                        <tbody></tbody>
+                        {% for order in orders %}
+                          <tr>
+                            <td>{{ orders[order][0] }}</td>
+                            <td>{{ orders[order][1] }}</td>
+                            <td>{{ orders[order][2] }}</td>
+                          </tr>
+                        {% endfor %}
+                        </tbody>
+                      </table>
+        </table>
+
+    <form action="/order" method="post">
+        <input type="text" name="vendorId" value="{{ vendor }}" style="display: none">
+        <input type="text" name="payment" value="{{ pay }}" style="display: none">
+        <input type="text" name="delivery" value="{{ delivery }}" style="display: none">
+        {% for order in orders %}
+        <input type="checkbox" name="orders" value="{{ order }}" checked style="display: none">
+        <input type="checkbox" name="quantity" value="{{ orders[order][1] }}" checked style="display: none">
+        {% endfor %}
+        <button class="btn waves-effect waves-light" type="submit" name="action">Proced to Pay
+            <i class="material-icons right">send</i>
+        </button>
+    </form>
+</div>
 </body>
 </html>

@@ -101,5 +101,14 @@ def cart():
                     break
         # print(ordrs)
         print(session['customerId'])
-        return render_template('cart.html', orders=ordrs, vendor=inc['venderId'], pay=inc['payment'])
+        return render_template('cart.html', orders=ordrs, vendor=inc['venderId'], pay=inc['payment'], delivery=inc["delivery"])
+    return redirect(url_for("home"))
+
+@app.route("/order", methods=["GET", "POST"])
+def order():
+    if request.method == 'POST':
+        inc = request.form
+        items = inc.getlist("orders")
+        quantity = inc.getlist("quantity")
+        print(items, quantity, inc, session["customerId"])
     return redirect(url_for("home"))

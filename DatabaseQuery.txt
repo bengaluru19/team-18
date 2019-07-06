@@ -35,14 +35,16 @@ CREATE TABLE orders(
     typeOfDelivery varchar(50),
     modeOfPayment varchar(50),
     vendorId int,
-    customerId int
+    customerId int,
+    items varchar(100),
+    quantity varchar(100)
 );
 
 CREATE TABLE item(
     itemid int primary key auto_increment,
     itemName varchar(50),
     cost int,
-    vendorId int
+    vendorId int,
 );
 
 insert into products values(null, 'Vegetables and Fruits ','some description', 60 );

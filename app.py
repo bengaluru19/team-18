@@ -9,6 +9,15 @@ temp = False
 conn = connectDB()
 cursor = conn.cursor(dictionary=True)
 
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'logged_in' is session:
+            return f(*args, **kwargs)
+        else:
+            return 'cannot access'
+    return decorated_function
+
 @app.route("/")
 def home():
     qs = "SELECT v.vendorId, v.serviceId, v.name vendorname, v.address, v.rating, v.lat, v.lon, s.name servicename, s.description, s.cost FROM vendors v, services s where v.serviceId=s.serviceId"
@@ -38,9 +47,24 @@ def search():
 
     return render_template("index.html", users=res)
 
-@app.route("/login")
+@app.route("/login", methods = ['POST','GET'])
 def login():
-    return render_template("login.html")
+    if request.method == 'POST':
+        userdetails = request.form
+        userid = userdetails['email']
+        passwed = userdetails['password']
+        cursor.execute('select * from customers where email = %s', (userid,))
+        res = cursor.fetchone()
+        if(res is None):
+            return 'Invalid credentials'
+        elif(res['password'] == passwed):
+            session['logged_in']=True
+            global temp
+            temp= True
+            session['customerId']=int(res['customerId'])
+            return redirect(url_for('home'))
+    else:
+        return render_template("login.html")
 
 @app.route("/signup")
 def signup():
@@ -53,4 +77,29 @@ def vendorinfo():
 @app.route('/vendor')
 def vendor():
     vendor = request.args.get('vendor')
-    return render_template('vendor'+ vendor +'.html')
+    qs = "SELECT * FROM item i, vendors v WHERE i.vendorId=v.vendorId"
+    cursor.execute(qs)
+    res = cursor.fetchall()
+    return render_template('vendor'+ vendor +'.html', items=res)
+
+@app.route('/cart', methods = ["GET", "POST"])
+def cart():
+    if request.method == 'POST':
+        inc = request.form
+        # print(inc)
+        items = inc.getlist('item')
+        ordrs = {}
+        qs = "SELECT * FROM item WHERE vendorId="+inc['venderId']
+        cursor.execute(qs)
+        res = cursor.fetchall()
+        # print(res, items)
+        for i in items:
+            for j in res:
+                # print(int(i), j["itemid"])
+                if(int(i) == j["itemid"]):
+                    ordrs[i] = [j["itemName"] ,inc['quantity'+str(i)], j["cost"]]
+                    break
+        # print(ordrs)
+        print(session['customerId'])
+        return render_template('cart.html', orders=ordrs, vendor=inc['venderId'])
+    return redirect(url_for("home"))

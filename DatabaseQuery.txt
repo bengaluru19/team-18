@@ -35,9 +35,7 @@ CREATE TABLE orders(
     typeOfDelivery varchar(50),
     modeOfPayment varchar(50),
     vendorId int,
-    customerId int,
-    productId int,
-    serviceId int
+    customerId int
 );
 
 CREATE TABLE item(

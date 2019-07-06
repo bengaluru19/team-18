@@ -77,22 +77,19 @@ h1, h2, h3, h4, h5, h6 {
       <img src="/static/images/Cust_Vendor Link13.jpg" class="w3-round w3-image w3-opacity-min" style="width:100%">
     </div>
   </div>
-  <div>
-    <h6>
-          <form>
-              Suits  <input type="number">
-              Sarees<input type="number">
-              Leather Jackets<input type="number">
-              Three Piece Suits<input type="number">
-              Tuxedo<input type="number">
-              <input type="submit" value="Add to Cart">
+  <div class="w3-row w3-padding-64">
+          <form class="w3-col l6 w3-padding-large" action="/cart" method="POST">
+              {% for item in items %}
+              <label for="{{ item.itemid }}">{{ item.itemName }}:</label>
+              <input type="checkbox" name="item" id="{{ item.itemid }}" value="{{ item.itemid }}">
+              <input type="number" name="quantity{{ item.itemid }}">
+              {% endfor %}
+              <input name="delivery" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" type=checkbox value="Delivery">Delivery<br>
+              <input name="delivery" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" type="checkbox" value="pickup">Self Pickup<br>
+              <input type="text" name="venderId" value="1" style="display: none">
+              <button type="submit">Submit</button>
             </form>
     <br>
-    <form name="Order Details">
-    <input style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" type=checkbox>Delivery<br>
-    <input style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" type="checkbox">Self Pickup
-  </form>
-</h6>
   </div>
 
   <hr>

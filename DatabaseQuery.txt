@@ -40,4 +40,11 @@ CREATE TABLE orders(
     serviceId int
 );
 
+CREATE TABLE item(
+    itemid int primary key auto_increment,
+    itemName varchar(50),
+    cost int,
+    vendorId int
+);
+
 insert into products values(null, 'Vegetables and Fruits ','some description', 60 );

@@ -33,15 +33,17 @@
         id: 'mapbox.streets'
     }).addTo(mymap);
 
-    L.marker([12.943072, 77.696665],13).addTo(mymap).on('mouseover', onMapClick1);
+    var closePopUp = mymap.closePopup();
 
-    L.marker([12.943502, 77.702943]).addTo(mymap).on('mouseover', onMapClick2);
+    L.marker([12.943072, 77.696665],13).addTo(mymap).on('mouseover', onMapOver1).on('mouseout',closePopUp);
 
-   L.marker([12.941210, 77.696719]).addTo(mymap).on('mouseover', onMapClick3);
+    L.marker([12.943502, 77.702943]).addTo(mymap).on('mouseover', onMapOver2).on('mouseout',closePopUp);
 
-   // L.marker([12.947763, 77.696576]).addTo(mymap).on('click', onMapClick4);
-   //
-   //  L.marker([12.939517, 77.696076]).addTo(mymap).on('click', onMapClick5);
+   L.marker([12.941210, 77.696719]).addTo(mymap).on('mouseover', onMapOver3).on('mouseout',closePopUp);
+
+   L.marker([12.947763, 77.696576]).addTo(mymap).on('mouseover', onMapOver4).on('mouseout',closePopUp);
+
+    L.marker([12.939517, 77.696076]).addTo(mymap).on('mouseover', onMapOver5).on('mouseout',closePopUp);
 
 
     L.circle([12.943072, 77.696665], 1000, {
@@ -54,28 +56,41 @@
     var popup = L.popup();
     var name1 = "Dragon Momos";
 
-    function onMapClick1(e) {
+    function onMapOver1(e) {
         popup
             .setLatLng(e.latlng)
             .setContent("Dragon Momos [ Rating -6.5 ] ")
             .openOn(mymap);
     }
 
-    function onMapClick2(e) {
+    function onMapOver2(e) {
         popup
             .setLatLng(e.latlng)
             .setContent("Pooja Tailor [rating -9.5]")
             .openOn(mymap);
     }
 
-    function onMapClick3(e) {
+    function onMapOver3(e) {
         popup
             .setLatLng(e.latlng)
             .setContent("Sabji Ghar [Rating - 3.2]")
             .openOn(mymap);
     }
+    function onMapOver4(e) {
+        popup
+            .setLatLng(e.latlng)
+            .setContent("Deep Tea Stall [rating -8]")
+            .openOn(mymap);
+    }
 
-   // mymap.on('click', onMapClick);
+    function onMapOver5(e) {
+        popup
+            .setLatLng(e.latlng)
+            .setContent("Abhi da Dhaba [Rating - 7.8]")
+            .openOn(mymap);
+    }
+
+   // mymap.on('click', onMapOver);
 
 </script>
 

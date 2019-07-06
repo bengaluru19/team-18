@@ -39,3 +39,5 @@ CREATE TABLE orders(
     productId int,
     serviceId int
 );
+
+insert into products values(null, 'Vegetables and Fruits ','some description', 60 );

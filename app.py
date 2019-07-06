@@ -11,22 +11,31 @@ cursor = conn.cursor(dictionary=True)
 
 @app.route("/")
 def home():
-    return render_template("home.html")
-
-@app.route("/search")
-def search():
-    query = request.args.get('query')
-    qs = "SELECT v.vendorId, v.name vendorname, v.address, v.rating, v.lat, v.lon, s.name servicename, s.description, s.cost FROM vendors v, services s where v.serviceId=s.serviceId AND v.name LIKE '%" + query + "%' OR s.name LIKE '%" + query + "%'"
+    qs = "SELECT v.vendorId, v.serviceId, v.name vendorname, v.address, v.rating, v.lat, v.lon, s.name servicename, s.description, s.cost FROM vendors v, services s where v.serviceId=s.serviceId"
     cursor.execute(qs)
     res = cursor.fetchall()
     print(res)
 
-    qs = "SELECT v.vendorId, v.name vendorname, v.address, v.rating, v.lat, v.lon, p.name productname, p.description, p.cost FROM vendors v, products p where v.productId=p.productId AND v.name LIKE '%" + query + "%' OR p.name LIKE '%" + query + "%'"
+    qs = "SELECT v.vendorId, v.productId, v.name vendorname, v.address, v.rating, v.lat, v.lon, p.name productname, p.description, p.cost FROM vendors v, products p where v.productId=p.productId "
+    cursor.execute(qs)
+    res1 = cursor.fetchall()
+    print(res1)
+    return render_template("index.html", users=res+res1)
+
+@app.route("/search")
+def search():
+    query = request.args.get('query')
+    qs = "SELECT v.vendorId, v.serviceId, v.name vendorname, v.address, v.rating, v.lat, v.lon, s.name servicename, s.description, s.cost FROM vendors v, services s where v.serviceId=s.serviceId AND v.name LIKE '%" + query + "%' OR s.name LIKE '%" + query + "%'"
+    cursor.execute(qs)
+    res = cursor.fetchall()
+    print(res)
+
+    qs = "SELECT v.vendorId, v.productId, v.name vendorname, v.address, v.rating, v.lat, v.lon, p.name productname, p.description, p.cost FROM vendors v, products p where v.productId=p.productId AND v.name LIKE '%" + query + "%' OR p.name LIKE '%" + query + "%'"
     cursor.execute(qs)
     res1 = cursor.fetchall()
     print(res1)
 
-    return render_template("home.html")
+    return render_template("index.html", users=res)
 
 @app.route("/login")
 def login():
@@ -39,3 +48,8 @@ def signup():
 @app.route("/vendorinfo")
 def vendorinfo():
     return render_template("vendorinfo.html")
+
+@app.route('/vendor')
+def vendor():
+    vendor = request.args.get('vendor')
+    return render_template('vendor'+ vendor +'.html')

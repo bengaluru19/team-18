@@ -1,0 +1,43 @@
+CREATE TABLE vendors(
+    vendorId int primary key auto_increment,
+    name varchar(40) not null,
+    address varchar(150),
+    rating double,
+    lat double,
+    lon double,
+    serviceId int,
+    productId int
+);
+
+CREATE TABLE products(
+    productId int primary key auto_increment,
+    name varchar(50) not null,
+    desription varchar(150),
+    cost int,
+    vendorId int
+);
+
+CREATE TABLE services(
+    serviceId int primary key auto_increment,
+    name varchar(50) not null,
+    desription varchar(150),
+    cost int,
+    vendorId int
+);
+
+CREATE TABLE customers(
+    customerId int primary key auto_increment,
+    name varchar(50) not null,
+    address varchar(200),
+    contact varchar(15)
+);
+
+CREATE TABLE orders(
+    orderId int primary key auto_increment,
+    typeOfDelivery varchar(50),
+    modeOfPayment varchar(50),
+    vendorId int,
+    customerId int,
+    productId int,
+    serviceId int
+);

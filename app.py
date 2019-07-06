@@ -15,6 +15,11 @@ def home():
 
 @app.route("/search")
 def search():
+    query = request.args.get('query')
+    qs = 'SELECT * FROM '
+    cursor.execute(qs,(src,dest))
+    res = cursor.fetchall()
+    print(res)
     return render_template("search.html")
 
 @app.route("/login")

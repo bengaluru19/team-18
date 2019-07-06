@@ -12,3 +12,4 @@ cursor = conn.cursor(dictionary=True)
 @app.route("/")
 def menu():
     return render_template("home.html")
+

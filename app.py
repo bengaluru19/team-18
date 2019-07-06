@@ -101,5 +101,5 @@ def cart():
                     break
         # print(ordrs)
         print(session['customerId'])
-        return render_template('cart.html', orders=ordrs, vendor=inc['venderId'])
+        return render_template('cart.html', orders=ordrs, vendor=inc['venderId'], pay=inc['payment'])
     return redirect(url_for("home"))

@@ -1,0 +1,155 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    width: calc(100% - 20px);
+    float: left;
+    margin: 10px;
+    background: #fff;
+    /* border: 1px solid #ddd; */
+    float: left;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 3px;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.2), 0 0 2px rgba(0,0,0,0.2);
+}
+
+.order-details {
+    float: left;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.order-item {
+    margin-top: 5px;
+    padding: 5px 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.order-item:last-child {
+    margin-bottom: 5px;
+}
+
+.total-amount {
+    float: left;
+    width: 100%;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background: #eee;
+    font-weight: 700;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.respond-order {
+    width: 100%;
+    float: left;
+}
+
+.respond-yes, .respond-no {
+    width: 50%;
+    float: left;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+}
+
+.respond-yes {
+    background: #328649;
+    border-bottom-left-radius: 2px;
+}
+
+.respond-no {
+    background: #bd0800;
+    border-right: 1px solid #bd0800;
+    border-bottom-right-radius: 2px;
+}
+
+.float-right {
+    float: right;
+}
+
+.item-image {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: 3px solid #ddd;
+}
+.split {
+    width: 50%;
+    float: left;
+}
+
+table {
+    width: 100%;
+}
+
+.td {
+    text-align: center;
+    font-size: 14px;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.respond-yes .fa, .respond-no .fa {
+    padding-right: 10px;
+}
+
+.roboto {
+    font-family: 'Roboto';
+}
+
+body {
+    font-family: Arial;
+    color: white;
+}
+
+.splitLocal {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.left {
+    left: 0;
+    background-color: black;
+}
+
+.right {
+    right: 0;
+    background-color: red;
+}
+
+.centered {
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.div1 {
+    margin-top:30px;
+    width: 300px;
+    height: 150px;
+    border: 1px solid red;
+    box-sizing: border-box;
+}
+
+.div2 {
+    margin-top: 30px;
+    width: 300px;
+    height: 150px;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+.live{
+
+}

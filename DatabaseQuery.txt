@@ -12,17 +12,15 @@ CREATE TABLE vendors(
 CREATE TABLE products(
     productId int primary key auto_increment,
     name varchar(50) not null,
-    desription varchar(150),
-    cost int,
-    vendorId int
+    description varchar(150),
+    cost int
 );
 
 CREATE TABLE services(
     serviceId int primary key auto_increment,
     name varchar(50) not null,
-    desription varchar(150),
-    cost int,
-    vendorId int
+    description varchar(150),
+    cost int
 );
 
 CREATE TABLE customers(

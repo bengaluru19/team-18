@@ -16,11 +16,17 @@ def home():
 @app.route("/search")
 def search():
     query = request.args.get('query')
-    qs = 'SELECT * FROM '
-    cursor.execute(qs,(src,dest))
+    qs = "SELECT v.vendorId, v.name vendorname, v.address, v.rating, v.lat, v.lon, s.name servicename, s.description, s.cost FROM vendors v, services s where v.serviceId=s.serviceId AND v.name LIKE '%" + query + "%' OR s.name LIKE '%" + query + "%'"
+    cursor.execute(qs)
     res = cursor.fetchall()
     print(res)
-    return render_template("search.html")
+
+    qs = "SELECT v.vendorId, v.name vendorname, v.address, v.rating, v.lat, v.lon, p.name productname, p.description, p.cost FROM vendors v, products p where v.productId=p.productId AND v.name LIKE '%" + query + "%' OR p.name LIKE '%" + query + "%'"
+    cursor.execute(qs)
+    res1 = cursor.fetchall()
+    print(res1)
+
+    return render_template("home.html")
 
 @app.route("/login")
 def login():

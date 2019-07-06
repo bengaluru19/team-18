@@ -10,6 +10,21 @@ conn = connectDB()
 cursor = conn.cursor(dictionary=True)
 
 @app.route("/")
-def menu():
+def home():
     return render_template("home.html")
 
+@app.route("/search")
+def search():
+    return render_template("search.html")
+
+@app.route("/login")
+def login():
+    return render_template("login.html")
+
+@app.route("/signup")
+def signup():
+    return render_template("signup.html")
+
+@app.route("/vendorinfo")
+def vendorinfo():
+    return render_template("vendorinfo.html")

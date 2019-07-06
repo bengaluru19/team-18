@@ -31,6 +31,7 @@ def search():
     print(res)
 
     qs = "SELECT v.vendorId, v.productId, v.name vendorname, v.address, v.rating, v.lat, v.lon, p.name productname, p.description, p.cost FROM vendors v, products p where v.productId=p.productId AND v.name LIKE '%" + query + "%' OR p.name LIKE '%" + query + "%'"
+    print(qs)
     cursor.execute(qs)
     res1 = cursor.fetchall()
     print(res1)

@@ -2,6 +2,25 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $('#pending').append( $('#new') );;
+  });
+});
+</script>
+
 <style>
 body {
   font-family: Arial;
@@ -53,7 +72,12 @@ body {
   border: 1px solid black;
   box-sizing: border-box;
 }
+
+.live{
+	
+}
 </style>
+
 </head>
 <body>
 
@@ -61,18 +85,23 @@ body {
   <div class="centered">
     <h1> New Orders </h1>
   </div>
-  
+	
+	
+	<div class="div1" class="center-block"></div>
 	<div class="div1"></div>
-	<div class="div1"></div>
-	<div class="div1"></div>
+	<div class="div1" id="new">data 1<br>
+	
+	<button id="shift">Shift</button></div>
 </div>
+
+<div class="live"></div>
 
 <div class="split right">
   <div class="centered">
     <h1> Pending Orders </h1>
   </div>
   
-  <div class="div2"></div>
+  <div class="div2" id="pending"></div>
 	<div class="div2"></div>
 	<div class="div2"></div>
 </div>

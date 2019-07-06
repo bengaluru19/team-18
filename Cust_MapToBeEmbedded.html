@@ -23,7 +23,7 @@
 <div id="mapid" style="width: 600px; height: 400px;"></div>
 <script>
 
-    var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+    var mymap = L.map('mapid').setView([12.943072,77.696665], 14);
 
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
         maxZoom: 18,
@@ -33,32 +33,49 @@
         id: 'mapbox.streets'
     }).addTo(mymap);
 
-    L.marker([51.5, -0.09]).addTo(mymap)
-        .bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
+    L.marker([12.943072, 77.696665],13).addTo(mymap).on('mouseover', onMapClick1);
 
-    L.circle([51.508, -0.11], 500, {
-        color: 'red',
-        fillColor: '#f03',
-        fillOpacity: 0.5
-    }).addTo(mymap).bindPopup("I am a circle.");
+    L.marker([12.943502, 77.702943]).addTo(mymap).on('mouseover', onMapClick2);
 
-    L.polygon([
-        [51.509, -0.08],
-        [51.503, -0.06],
-        [51.51, -0.047]
-    ]).addTo(mymap).bindPopup("I am a polygon.");
+   L.marker([12.941210, 77.696719]).addTo(mymap).on('mouseover', onMapClick3);
+
+   // L.marker([12.947763, 77.696576]).addTo(mymap).on('click', onMapClick4);
+   //
+   //  L.marker([12.939517, 77.696076]).addTo(mymap).on('click', onMapClick5);
+
+
+    L.circle([12.943072, 77.696665], 1000, {
+            color: 'red',
+            fillColor: '#f03',
+            fillOpacity: 0.5
+        }).addTo(mymap).bindPopup("I am a circle.");
 
 
     var popup = L.popup();
+    var name1 = "Dragon Momos";
 
-    function onMapClick(e) {
+    function onMapClick1(e) {
         popup
             .setLatLng(e.latlng)
-            .setContent("You clicked the map at " + e.latlng.toString())
+            .setContent("Dragon Momos [ Rating -6.5 ] ")
             .openOn(mymap);
     }
 
-    mymap.on('click', onMapClick);
+    function onMapClick2(e) {
+        popup
+            .setLatLng(e.latlng)
+            .setContent("Pooja Tailor [rating -9.5]")
+            .openOn(mymap);
+    }
+
+    function onMapClick3(e) {
+        popup
+            .setLatLng(e.latlng)
+            .setContent("Sabji Ghar [Rating - 3.2]")
+            .openOn(mymap);
+    }
+
+   // mymap.on('click', onMapClick);
 
 </script>
 

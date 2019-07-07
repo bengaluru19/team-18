@@ -25,14 +25,35 @@
         <ul class="row black"> 
             <li class="col s5 center-align"><a href="/active"><h2>Active</h2></a></li>
             <li class="col s5 center-align"><a href="/current"><h2>Current</h2></a></li>
-            <li class="col s2 center-align active"><a href=""><h2><i class="fa fa-power-off" aria-hidden="true"></i></h2></a></li>
+            <li class="col s2 center-align active"><a href="/close"><h2><i class="fa fa-power-off" aria-hidden="true"></i></h2></a></li>
         </ul>
     </nav>
     
-    
+    <div class="container">
+        {% for i in range(l) %}
+        <div class="row">
+            <div class="col s12 m10">
+                <h2 class="header">{{ rec[i].name }}</h2>
+                <div class="card horizontal">
+                    <div class="card-image">
+                    <img src="https://lorempixel.com/100/190/nature/6">
+                    </div>
+                    <div class="card-stacked">
+                    <div class="card-content">
+                            <ul>
+                                {%for j in range(ll[i])%}
+                                <li>{{ quantity[i][j] }} X {{ items[i][j] }}</li>
+                                {% endfor %}
+                            </ul>
+                            <p>Payment : {{ rec[i].modeOfPayment }}</p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            {% endfor %}
 
-
-
+    </div>
 
 <script>
     $(function(){

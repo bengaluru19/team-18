@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $('#pending').append( $('#new') );;
+  });
+});
+</script>
+
+<style>
+body {
+  font-family: Arial;
+  color: white;
+}
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.left {
+  left: 0;
+  background-color: black;
+}
+
+.right {
+  right: 0;
+  background-color: red;
+}
+
+.centered {
+  position: absolute;
+  left: 50%;
+  top:50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.div1 {
+  margin-top:30px;
+  width: 300px;
+  height: 150px;
+  border: 1px solid red;
+  box-sizing: border-box;
+}
+
+.div2 {
+  margin-top: 30px;
+  width: 300px;
+  height: 150px;
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+
+.live{
+	
+}
+</style>
+
+</head>
+<body>
+
+<div class="split left">
+  <div class="centered">
+    <h1> New Orders </h1>
+	<div class="div1" class="center-block"></div>
+	<div class="div1"></div>
+	<div class="div1" id="new">data 1<br>
+  </div>
+	
+	
+	
+	
+	<button id="shift">Shift</button></div>
+</div>
+
+<div class="live"></div>
+
+<div class="split right">
+  <div class="centered">
+    <h1> Pending Orders </h1>
+  <div class="div2" id="pending"></div>
+	<div class="div2"></div>
+	<div class="div2"></div>
+  </div>
+  
+</div>
+     
+</body>
+</html> 

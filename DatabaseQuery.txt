@@ -37,8 +37,7 @@ CREATE TABLE orders(
     vendorId int,
     customerId int,
     items varchar(100),
-    quantity varchar(100),
-    status varchar(15) DEFAULT 'pending'
+    quantity varchar(100)
 );
 
 CREATE TABLE item(

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<title>Pooja Tailors</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+body {font-family: "Times New Roman", Georgia, Serif;}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display";
+  letter-spacing: 5px;
+}
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px; color:black">
+    <a href="#home" class="w3-bar-item w3-button">Pooja Tailors</a>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="#about" class="w3-bar-item w3-button">About</a>
+      <a href="#products" class="w3-bar-item w3-button">Menu</a>
+      <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
+  <img class="w3-image" src="/static/images/Cust_Vendor Link11.jpg" width="1600" height="800">
+  <div class="w3-display-bottomleft w3-padding-large w3-opacity">
+    <h1 class="w3-xxlarge">Pooja Tailors</h1>
+  </div>
+</header>
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:1100px">
+
+  <!-- About Section -->
+  <div class="w3-row w3-padding-64" id="about">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+     <img src="/static/images/Cust_Vendor Link12.jpg" class="w3-round w3-image w3-opacity-min" width="600" height="750">
+    </div>
+
+    <div class="w3-col m6 w3-padding-large">
+      <h1 class="w3-center">About Pooja Tailors</h1><br>
+      <h5 class="w3-center">Fine suits and saree designs</h5>
+      <p class="w3-large">Pooja Mohapatra first came to Bangalore in the year 2001. Since then she has been running her Tailoring shop successfully. It has gained huge popularity among the local residents and was a huge hit instantly. 
+      <p class="w3-large w3-text-grey w3-hide-medium">Pooja's Tailoring shop is well known for its rich designs and fine cuts. Customers rely on her whole heartedly for all jobs</p>
+    </div>
+  </div>
+  
+  <hr>
+  
+  <!-- Menu Section -->
+  <div class="w3-row w3-padding-64" id="products">
+    <div class="w3-col l6 w3-padding-large">
+      <h1 class="w3-center">Our Products</h1><br>
+      <h4>Suits          Rs 200</h4>
+      <p class="w3-text-grey">Well Designed garments></p><br>
+    
+      <h4>Sarees                Rs 300</h4>
+      <p class="w3-text-grey">Classic piece of fabrics at mind blowing prices</p><br>
+    
+      <h4>Leather Jackets       Rs 400</h4>
+      <p class="w3-text-grey">Classy, Shiny, Stunning</p><br>
+    
+      <h4>Three Piece suit        Rs 500</h4>
+      <p class="w3-text-grey">Make an impression and flaunt it</p><br>
+    
+      <h4>Tuxedo    Rs 600</h4>
+      <p class="w3-text-grey">Another classic from the collection, never fails to charm</p>    
+    </div>
+    
+    <div class="w3-col l6 w3-padding-large">
+      <img src="/static/images/Cust_Vendor Link13.jpg" class="w3-round w3-image w3-opacity-min" style="width:100%">
+    </div>
+  </div>
+  <div class="w3-row w3-padding-64">
+          <form class="w3-col l6 w3-padding-large" action="/cart" method="POST">
+              {% for item in items %}
+              <label for="{{ item.itemid }}">{{ item.itemName }}:</label>
+              <input type="checkbox" name="item" id="{{ item.itemid }}" value="{{ item.itemid }}">
+              <input type="number" name="quantity{{ item.itemid }}">
+              {% endfor %}
+              <input name="delivery" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" type=checkbox value="Delivery">Delivery<br>
+              <input name="delivery" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" type="checkbox" value="pickup">Self Pickup<br>
+              <input type="text" name="venderId" value="1" style="display: none">
+              <label for="bhim">BHIM</label>
+              <input value="bhim" type="checkbox" name="payment" id="bhim">
+
+              <label for="paytm">PayTM</label>
+              <input value="paytm" type="checkbox" name="payment" id="paytm">
+
+              <label for="phonepe">PhonePe</label>
+              <input value="phonepe" type="checkbox" name="payment" id="phonepe">
+
+              <button type="submit">Submit</button>
+            </form>
+    <br>
+  </div>
+
+  <hr>
+
+  <!-- Contact Section -->
+  <div class="w3-container w3-padding-64" id="contact">
+    <h1>Contact</h1><br>
+    <p>We take large scale catering orders also. Please contact us on the below mentioned numbers to place order</p>
+    <p class="w3-text-blue-grey w3-large"><b>Nehru Marg, Bangalore</b></p>
+    <p>You can also contact us by phone <a href="tel:123-456-7890">123-456-7890</a > or you can send us a message here:</p>
+    <form action="/action_page.php" target="_blank">
+      <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></p>
+      <p><input class="w3-input w3-padding-16" type="number" placeholder="How many people" required name="People"></p>
+      <p><input class="w3-input w3-padding-16" type="datetime-local" placeholder="Date and time" required name="date"></p>
+      <p><input class="w3-input w3-padding-16" type="text" placeholder="Message \ Special requirements" required name="Message"></p>
+      <p><button class="w3-button w3-light-grey w3-section" type="submit">SEND MESSAGE</button></p>
+    </form>
+  </div>
+  
+<!-- End page content -->
+</div>
+
+
+</body>
+</html>

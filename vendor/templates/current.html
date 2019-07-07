@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GoLive</title>
+    <link rel="stylesheet"  href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="/static/styles.css" >
+    <script
+            src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+            crossorigin="anonymous"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style>
+    </style>
+
+</head>
+<body>
+
+    <nav>
+        <ul class="row black"> 
+            <li class="col s5 center-align"><a href="/active"><h2>Active</h2></a></li>
+            <li class="col s5 center-align"><a href="/current"><h2>Current</h2></a></li>
+            <li class="col s2 center-align active"><a href=""><h2><i class="fa fa-power-off" aria-hidden="true"></i></h2></a></li>
+        </ul>
+    </nav>
+    
+    
+
+
+
+
+<script>
+    $(function(){
+       $(document).on('click', 'button.inactive', function(){
+           $(this).removeClass('inactive').addClass('active');
+           setTimeout(function(){
+            $(location).attr('href', '/');
+            }, 1000);
+       });
+
+        $(document).on('click', 'button.active', function(){
+            $(this).removeClass('active').addClass('inactive');
+            setTimeout(function(){
+                $(location).attr('href', '/');
+            }, 1000);
+        });
+
+    });
+
+</script>
+
+
+</body>
+</html>

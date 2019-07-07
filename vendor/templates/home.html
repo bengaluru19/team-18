@@ -5,7 +5,7 @@
     <title>GoLive</title>
     <link rel="stylesheet"  href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="styles.css" >
+    <link rel="stylesheet" href="/static/styles.css" >
     <script
             src="https://code.jquery.com/jquery-1.12.4.min.js"
             integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
@@ -19,11 +19,18 @@
     $(function(){
        $(document).on('click', 'button.inactive', function(){
            $(this).removeClass('inactive').addClass('active');
+           setTimeout(function(){
+            $(location).attr('href', '/active');
+            }, 1000);
        });
 
         $(document).on('click', 'button.active', function(){
             $(this).removeClass('active').addClass('inactive');
+            setTimeout(function(){
+                $(location).attr('href', 'http://stackoverflow.com');
+            }, 1000);
         });
+
     });
 
 </script>

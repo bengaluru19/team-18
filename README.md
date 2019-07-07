@@ -1,5 +1,5 @@
-# team-18
-VyapaarDirect
+# VyapaarDirect
+
 This product aims to empower local businesses and small vendors to reach out to customers and create a bigger customer bank. It enables the 
 the user to discover new businesses around and gives the vendors an edge to widen their reach.
 

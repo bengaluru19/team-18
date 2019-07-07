@@ -110,5 +110,13 @@ def order():
         inc = request.form
         items = inc.getlist("orders")
         quantity = inc.getlist("quantity")
-        print(items, quantity, inc, session["customerId"])
+        # print(items, quantity, inc, session["customerId"])
+        item = ''
+        for i in items:
+            items += ':' + i
+        quants = ''
+        for i in quantity:
+            quants += ':' + i
+        qu = 'INSERT INTO order VALUES (null, %s, %s, %s, %s, %s, %s)'
+        cursor.execute(qs, (inc['delivery'], inc['payment'], inc["vendorId"], session["customerId"], item, quants))
     return redirect(url_for("home"))

@@ -27,7 +27,9 @@ CREATE TABLE customers(
     customerId int primary key auto_increment,
     name varchar(50) not null,
     address varchar(200),
-    contact varchar(15)
+    contact varchar(15),
+    email varchar(50),
+    password varchar(50)
 );
 
 CREATE TABLE orders(
@@ -37,7 +39,8 @@ CREATE TABLE orders(
     vendorId int,
     customerId int,
     items varchar(100),
-    quantity varchar(100)
+    quantity varchar(100),
+    status varchar(15) DEFAULT 'pending'
 );
 
 CREATE TABLE item(

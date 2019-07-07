@@ -28,7 +28,7 @@ h1, h2, h3, h4, h5, h6 {
 
 <!-- Header -->
 <header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
-  <img class="w3-image" src="/static/images/Cust_Vendor Link11.jpg" width="1600" height="800">
+  <img class="w3-image" src="Cust_Vendor Link11.jpg" width="1600" height="800">
   <div class="w3-display-bottomleft w3-padding-large w3-opacity">
     <h1 class="w3-xxlarge">Pooja Tailors</h1>
   </div>
@@ -40,7 +40,7 @@ h1, h2, h3, h4, h5, h6 {
   <!-- About Section -->
   <div class="w3-row w3-padding-64" id="about">
     <div class="w3-col m6 w3-padding-large w3-hide-small">
-     <img src="/static/images/Cust_Vendor Link12.jpg" class="w3-round w3-image w3-opacity-min" width="600" height="750">
+     <img src="Cust_Vendor Link12.jpg" class="w3-round w3-image w3-opacity-min" width="600" height="750">
     </div>
 
     <div class="w3-col m6 w3-padding-large">
@@ -74,31 +74,25 @@ h1, h2, h3, h4, h5, h6 {
     </div>
     
     <div class="w3-col l6 w3-padding-large">
-      <img src="/static/images/Cust_Vendor Link13.jpg" class="w3-round w3-image w3-opacity-min" style="width:100%">
+      <img src="Cust_Vendor Link13.jpg" class="w3-round w3-image w3-opacity-min" style="width:100%">
     </div>
   </div>
-  <div class="w3-row w3-padding-64">
-          <form class="w3-col l6 w3-padding-large" action="/cart" method="POST">
-              {% for item in items %}
-              <label for="{{ item.itemid }}">{{ item.itemName }}:</label>
-              <input type="checkbox" name="item" id="{{ item.itemid }}" value="{{ item.itemid }}">
-              <input type="number" name="quantity{{ item.itemid }}">
-              {% endfor %}
-              <input name="delivery" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" type=checkbox value="Delivery">Delivery<br>
-              <input name="delivery" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" type="checkbox" value="pickup">Self Pickup<br>
-              <input type="text" name="venderId" value="1" style="display: none">
-              <label for="bhim">BHIM</label>
-              <input value="bhim" type="checkbox" name="payment" id="bhim">
-
-              <label for="paytm">PayTM</label>
-              <input value="paytm" type="checkbox" name="payment" id="paytm">
-
-              <label for="phonepe">PhonePe</label>
-              <input value="phonepe" type="checkbox" name="payment" id="phonepe">
-
-              <button type="submit">Submit</button>
+  <div>
+    <h6>
+          <form>
+              Suits  <input type="number">
+              Sarees<input type="number">
+              Leather Jackets<input type="number">
+              Three Piece Suits<input type="number">
+              Tuxedo<input type="number">
+              <input type="submit" value="Add to Cart">
             </form>
     <br>
+    <form name="Order Details">
+    <input style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" type=checkbox>Delivery<br>
+    <input style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" type="checkbox">Self Pickup
+  </form>
+</h6>
   </div>
 
   <hr>
@@ -107,7 +101,7 @@ h1, h2, h3, h4, h5, h6 {
   <div class="w3-container w3-padding-64" id="contact">
     <h1>Contact</h1><br>
     <p>We take large scale catering orders also. Please contact us on the below mentioned numbers to place order</p>
-    <p class="w3-text-blue-grey w3-large"><b>Nehru Marg, Bangalore</b></p>
+    <p class="w3-text-blue-grey w3-large"><b>Location: <a href="https://www.google.com/maps/place/Nehru+Nagar,+Bengaluru,+Karnataka+560064/@13.0912889,77.5939592,15z/data=!3m1!4b1!4m5!3m4!1s0x3bae1851b282aafd:0xb3a594bb568bfae!8m2!3d13.0902817!4d77.6025302">Nehru Marg, Bangalore</a></b></p>
     <p>You can also contact us by phone <a href="tel:123-456-7890">123-456-7890</a > or you can send us a message here:</p>
     <form action="/action_page.php" target="_blank">
       <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></p>
